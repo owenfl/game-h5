@@ -1,0 +1,26 @@
+import Vue from 'vue'
+import Router from 'vue-router'
+
+import home from '../components/home'
+
+Vue.use(Router)
+
+export default new Router({
+  routes: [
+    {
+      path: '*',
+      name: 'home',
+      component: home
+    },
+    {
+      path: '/home',
+      name: 'home',
+      component: resolve => require(['../components/home'], resolve)
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: resolve => require(['../components/login'], resolve)
+    },
+  ]
+})
