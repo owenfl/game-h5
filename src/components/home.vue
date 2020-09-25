@@ -41,8 +41,10 @@ export default {
     }
   },
   mounted(){
-    this.init()
-    // this.$toast.text('提示信息');
+    this.$nextTick(()=>{
+      this.init();
+    })
+
   },
   methods:{
     init() {
