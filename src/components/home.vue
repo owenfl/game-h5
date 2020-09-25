@@ -2,6 +2,10 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
 
+
+dsfafds
+
+
     <skeleton-square 
       width="200px"
     >
