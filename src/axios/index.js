@@ -5,6 +5,9 @@ import axios from 'axios'
 // import { Message } from 'element-ui'
 // import layer from 'vue-layer'
 
+// 允许携带cookie
+axios.defaults.withCredentials = true; 
+
 // 请求拦截
 axios.interceptors.request.use(config => {
     // if (sessionStorage.getItem('token')) config.headers.token = sessionStorage.token;
@@ -35,7 +38,7 @@ axios.interceptors.response.use(response => {
     return response;
 }, error => {
     // Message({showClose: true, message: '网络崩溃了', type: 'error'});
-    layer(Vue).msg('网络崩溃了')
+    // layer(Vue).msg('网络崩溃了')
     return Promise.reject(error);
 })
 

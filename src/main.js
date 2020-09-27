@@ -5,12 +5,15 @@ import router from './router'
 import store from './store'
 import axios from './axios'
 
+
 import NutUI from '@nutui/nutui-jdl';
 import '@nutui/nutui-jdl/dist/nutui.css';
 NutUI.install(Vue);
 
+
 Vue.prototype.$axios = axios
 Vue.config.productionTip = false
+document.title = '小米直播'
 
 new Vue({
   router,

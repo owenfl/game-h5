@@ -18,9 +18,38 @@ export default new Router({
       component: resolve => require(['../components/home'], resolve)
     },
     {
+      path: '/detail',
+      name: 'detail',
+      component: resolve => require(['../components/detail'], resolve)
+    },
+
+    {
+      path: '/my',
+      name: 'my',
+      component: resolve => require(['../components/my'], resolve)
+    },
+
+    {
+      path: '/subs',
+      name: 'subscribe',
+      component: resolve => require(['../components/subscribe'], resolve)
+    },
+
+
+    {
       path: '/login',
       name: 'login',
-      component: resolve => require(['../components/login'], resolve)
+      component: resolve => require(['../common/login'], resolve)
+    },
+    {
+      path: '/forget',
+      name: 'forget',
+      component: resolve => require(['../common/forget'], resolve)
+    },
+    {
+      path: '/menu',
+      name: 'menu',
+      component: resolve => require(['../common/menu'], resolve)
     },
   ]
 })

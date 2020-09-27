@@ -44,15 +44,30 @@ module.exports = {
         https: false,
         hotOnly: true,
         proxy: { // 配置跨域
-            '/api': {
-                target: 'http://video-ce.com/',
+            '/appapi': {
+                target: 'http://live.zbitcloud.com/',
                 ws: true,
                 changOrigin: true,
                 pathRewrite: {
-                    '^/api': ''
+                    '^/appapi': ''
                 }
             }
         },
         before: app => { }
+    },
+
+    css: {
+        loaderOptions: {
+            // 给 sass-loader 传递选项
+            scss: {
+                // @/ 是 src/ 的别名
+                // 注意：在 sass-loader v7 中，这个选项名是 "data"
+                prependData: ` 
+                @import "@/assets/custom_theme.scss";
+                @import "@nutui/nutui-jdl/dist/styles/index.scss";
+                `,
+            }
+        },
     }
+
 }

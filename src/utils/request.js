@@ -5,9 +5,10 @@ import axios from "axios";
 axios.defaults.withCredentials = true;
 // 创建axios实例
 const service = axios.create({
-  baseURL: '/kmtg-api/', // api的base_url
+  baseURL: '/appapi/', // api的base_url
   timeout: 10000 // 请求超时时间
 });
+
 
 // request拦截器
 // service.interceptors.request.use(
