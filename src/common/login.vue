@@ -1,7 +1,7 @@
 <template>
   <div class="login">
     <div class="loginbg"></div>
-    <div class="icon-arrow-left"></div>
+    <div class="icon-arrow-left" @click="goBack"></div>
 
     <div class="logo">
       <img src="./../assets/images/login/login-logo.png" alt="">
@@ -32,10 +32,17 @@
       立即登录
     </nut-button>
 
+    <router-link to="forget">
     <div class="bottombtn">
       <span>立即注册</span>
-      <span>忘记密码</span>
+
+      <span>
+         忘记密码
+      </span>
+
     </div>
+    </router-link>
+
 
   </div>
 </template>
@@ -56,6 +63,9 @@ export default {
 
   },
   methods:{
+    goBack() {
+      this.$router.go(-1)
+    },
     loginbtn() {
       this.$toast.text('用户登录模块');
     },

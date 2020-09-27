@@ -75,7 +75,10 @@
       </div>
       <div class="liveBox mgL18 mgR18">
         <div class="item">
+          <router-link to="detail">
           <div class="playBox"></div>
+          </router-link>
+
           <div class="tt mgL18">冠军杯赛</div>
           <div class="space">
             <p class="fg mgL18">cpoo vs weee</p>
@@ -106,6 +109,8 @@
 
       </div>
     </div>
+
+
 
     <menu-component></menu-component>
   </div>

@@ -1,7 +1,7 @@
 <template>
   <div class="forget">
 
-    <nut-navbar :close-show="false" :more-show="false" :search-show="false" title="重置密码" >
+    <nut-navbar @on-click-back="goBack"  :close-show="false" :more-show="false" :search-show="false" title="重置密码" >
       <a slot="search-icon"></a>
     </nut-navbar>
 
@@ -19,8 +19,6 @@
   </div>
 </template>
 
-
-
 <script>
 export default {
   name: 'login',
@@ -29,6 +27,7 @@ export default {
   },
   data() {
     return {
+      val2: ''
 
     };
   },
@@ -36,14 +35,15 @@ export default {
 
   },
   methods:{
-
+    goBack() {
+      this.$router.go(-1)
+    },
   }
 
 }
 </script>
 
 <style lang="less" scoped>
-
   .nut-button.circle {
     width: 5.15rem;
     height: 0.91rem;

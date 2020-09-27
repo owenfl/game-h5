@@ -2,7 +2,11 @@
   <div class="detail">
     <div class="topBox ">
       <div class="playBox">
-        <div class="playbtn"></div>
+
+        <router-link to="home">
+          <div class="playbtn"></div>
+        </router-link>
+
       </div>
       <div class="tab">
         <nut-tab @tab-switch="tabSwitch" :tab-line="false" :scroll-line="true">
