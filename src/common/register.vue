@@ -17,30 +17,47 @@
         <input type="tel" v-model="phoneNumber" maxlength="11" class="boxFlex" placeholder="请输入您的手机号">
       </div>
     </div>
+
+
+
+
+    <div class="inputBox" style="margin-top: 0.23rem; margin-bottom: 0.42rem;">
+      <div class="inputbg"></div>
+      <div class="box disBox boxCenter">
+        <div class="mima"></div>
+        <!-- <input type="password" class="boxFlex" placeholder="请输入密码"> -->
+        <input type="password" class="boxFlex"  v-model="checkCode" maxlength="8" placeholder="请输入密码">
+
+        <div @click="getCode">{{codeBtn}}</div>
+      </div>
+    </div>
+
+
+
     <div class="inputBox" style="margin-top: 0.23rem; margin-bottom: 0.42rem;">
       <div class="inputbg"></div>
       <div class="box disBox boxCenter">
         <div class="mima"></div>
         <!-- <input type="password" class="boxFlex" placeholder="请输入密码"> -->
         <input type="password" v-model="password" class="boxFlex" placeholder="请输入密码">
-
       </div>
     </div>
 
     <nut-button 
       block 
       shape="circle"
-      @click="loginbtn"
+      @click="regbtn"
     >
-      立即登录
+      立即注册
     </nut-button>
 
-    <router-link to="forget">
+
+    <router-link to="login">
     <div class="bottombtn">
-      <span>立即注册</span>
+      <span>立即登录</span>
 
       <span>
-         忘记密码
+        忘记密码
       </span>
 
     </div>
@@ -51,6 +68,8 @@
 </template>
 
 <script>
+
+
 export default {
   name: 'login',
   props: {
@@ -61,8 +80,16 @@ export default {
       val5: '',
       state:"error",
 
-      phoneNumber:'13712345678',
+
+      isShow: false,
+      phoneNumber:'',
+      phoneNumber:'13788888888',
+      checkCode:'123456',
+      userCheckCode:'',
       password:'123qwe1',
+      codeBtn:'获取验证码',
+      timer:null,
+      loadingShow:false
 
     };
   },
@@ -73,22 +100,65 @@ export default {
     goBack() {
       this.$router.go(-1)
     },
-    loginbtn() {
+    getCode(e){//获取手机验证码
+        if(this.codeBtn === '获取验证码'){
+            let reg = /^1\d{10}$/;
+            if(!reg.test(this.phoneNumber)){
+                this.$EventBus.$emit('hide','请输入格式正确的手机号');
+            }else{
+                let ele = e.target,timeScound = 60;
+                ele.classList.add('alredy-send');
+                this.codeBtn = `重新发送（${timeScound}）`;
+                this.timer = setInterval(() => {
+                    timeScound -= 1;
+                    this.codeBtn = `重新发送（${timeScound}）`;
+                    if(timeScound <= 0){
+                        ele.classList.remove('alredy-send');
+                        this.codeBtn = '获取验证码';
+                        clearInterval(this.timer);
+                    }
+                },1000)
+                
+                let param = {
+                    mobile:this.phoneNumber
+                }
+                // let sign = this.md5(sign_rules(param));
+                let sign = "84bb961185899b01663a6cd705a53cbd";
 
+                // param.service = 'PCLogin.GetCode';
+                param.service = 'Login.GetCode';
+
+                param.sign = sign;
+                // this.$axios.post('appapi/',param).then((response) => {
+                //     let res = res.data.data;
+                //     if(res.code == 0){
+                        
+                //     }
+                //     // this.userCheckCode = res.data.data.msg;
+                //     // console.log(this.userCheckCode);
+                // })
+                this.$axios.post('appapi/',param).then((response) => {
+                    let res = res.data.data;
+                    if(res.code == 0){
+                        
+                    }
+                    // this.userCheckCode = res.data.data.msg;
+                    // console.log(this.userCheckCode);
+                })
+
+            }
+        }
+    },
+    regbtn() {
       this.$axios.post('appapi/',{
         user_login:this.phoneNumber,
         user_pass:this.password,
-        service:'Login.UserLogin'
-      }).then((response) => {
-        let res = response.data.data;
-        if(res.code == 0){
-          localStorage.setItem('uid',res.info[0].id);//存储uid
-          localStorage.setItem('token',res.info[0].token);//token值getUserInfo
-
-          console.log(res.info[0].id,res.info[0].token,res.info[0])
-          this.$toast.text('登录成功!');
-          this.$router.push('home')
-        }
+        // service:'PCLogin.UserReg',
+        service:'Login.UserReg',
+        code:this.checkCode,
+        source:'H5',
+      }).then((res) => {
+        console.log(res);
       })
 
     },

@@ -5,7 +5,7 @@ import axios from "axios";
 axios.defaults.withCredentials = true;
 // 创建axios实例
 const service = axios.create({
-  baseURL: '/appapi/', // api的base_url
+  // baseURL: '/appapi/', // api的base_url
   timeout: 10000 // 请求超时时间
 });
 

@@ -1,16 +1,20 @@
 import Vue from 'vue'
 import axios from 'axios'
+import qs from 'qs'
+
 
 // import router from './../router'
 // import { Message } from 'element-ui'
 // import layer from 'vue-layer'
 
 // 允许携带cookie
-axios.defaults.withCredentials = true; 
+// axios.defaults.withCredentials = true; 
 
 // 请求拦截
 axios.interceptors.request.use(config => {
     // if (sessionStorage.getItem('token')) config.headers.token = sessionStorage.token;
+    let param = config.data;
+    config.data = qs.stringify(param);
     return config;
 }, error => {
     // layer(Vue).msg('网络崩溃了')

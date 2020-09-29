@@ -11,7 +11,9 @@ import '@nutui/nutui-jdl/dist/nutui.css';
 NutUI.install(Vue);
 
 
+Vue.prototype.$EventBus = new Vue();
 Vue.prototype.$axios = axios
+axios.defaults.baseURL = 'http://live.zbitcloud.com/'
 Vue.config.productionTip = false
 document.title = '小米直播'
 

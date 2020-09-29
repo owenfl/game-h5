@@ -52,9 +52,9 @@
         <div class="boxFlex">意见反馈</div>
         <div class="icon-arrow-right"></div>
       </div>
-      <div class="boxCenter">
+      <div class="boxCenter" @click="signOut">
         <div class="icon exit"></div>
-        <div class="boxFlex">退出</div>
+        <div class="boxFlex">退出 {{noLogin}} </div>
         <div class="icon-arrow-right"></div>
       </div>
     </div>
@@ -73,19 +73,47 @@ export default {
   },
   data () {
     return {
+      noLogin:true,
 
     }
   },
   mounted(){
     this.$nextTick(()=>{
-
+      if(localStorage.getItem('token')){
+          this.noLogin = false;
+      }
     })
   },
   methods:{
 
+    signOut(){//退出登录
+      this.$axios.post('appapi/',{
+          uid:localStorage.getItem('uid'),
+          token:localStorage.getItem('token'),
+          service:'PCLogin.Logout'
+      }).then((response) => {
+          let res = response.data.data;
+          if(res.code == 0){
+              localStorage.removeItem('uid');
+              localStorage.removeItem('token');
+              this.noLogin = true;
+
+              console.log(res)
+          }
+      })
+
+      setTimeout(() => {
+        this.$router.push('login')
+      },1000)
+
+
+    },
+
+
   }
 }
 </script>
+
 
 <style lang="less" scoped>
 .headbg {
@@ -254,3 +282,4 @@ export default {
 
 }
 </style>
+

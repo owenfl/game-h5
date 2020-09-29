@@ -37,24 +37,24 @@ module.exports = {
     },
     pwa: { // 单页插件相关配置 https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-pwa
     },
-    devServer: {
-        open: true,
-        host: 'localhost',
-        port: 8081,
-        https: false,
-        hotOnly: true,
-        proxy: { // 配置跨域
-            '/appapi': {
-                target: 'http://live.zbitcloud.com/',
-                ws: true,
-                changOrigin: true,
-                pathRewrite: {
-                    '^/appapi': ''
-                }
-            }
-        },
-        before: app => { }
-    },
+    // devServer: {
+    //     open: true,
+    //     host: 'localhost',
+    //     port: 8081,
+    //     https: false,
+    //     hotOnly: true,
+    //     proxy: { // 配置跨域
+    //         '/appapi': {
+    //             target: 'http://live.zbitcloud.com/',
+    //             ws: true,
+    //             changOrigin: true,
+    //             pathRewrite: {
+    //                 '^/appapi': ''
+    //             }
+    //         }
+    //     },
+    //     before: app => { }
+    // },
 
     css: {
         loaderOptions: {

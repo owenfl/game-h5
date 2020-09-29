@@ -36,7 +36,11 @@ export default new Router({
       component: resolve => require(['../components/subscribe'], resolve)
     },
 
-
+    {
+      path: '/register',
+      name: 'register',
+      component: resolve => require(['../common/register'], resolve)
+    },
     {
       path: '/login',
       name: 'login',
