@@ -65,6 +65,7 @@
 
 <script>
 import menuComponent from './../common/menu'
+import { getCookie, delCookie } from './../assets/js/cookie'
 
 export default {
   name: 'my',
@@ -79,8 +80,8 @@ export default {
   },
   mounted(){
     this.$nextTick(()=>{
-      if(localStorage.getItem('token')){
-          this.noLogin = false;
+      if(getCookie('token')){
+        this.noLogin = false;
       }
     })
   },
@@ -88,17 +89,17 @@ export default {
 
     signOut(){//退出登录
       this.$axios.post('appapi/',{
-          uid:localStorage.getItem('uid'),
-          token:localStorage.getItem('token'),
-          service:'PCLogin.Logout'
+          uid: getCookie('uid'),
+          token: getCookie('token'),
+          service: 'PCLogin.Logout'
       }).then((response) => {
           let res = response.data.data;
           if(res.code == 0){
-              localStorage.removeItem('uid');
-              localStorage.removeItem('token');
-              this.noLogin = true;
+            delCookie('uid');
+            delCookie('token');
 
-              console.log(res)
+            this.noLogin = true;
+            console.log(res)
           }
       })
 

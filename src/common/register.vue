@@ -113,14 +113,14 @@ export default {
                     timeScound -= 1;
                     this.codeBtn = `重新发送（${timeScound}）`;
                     if(timeScound <= 0){
-                        ele.classList.remove('alredy-send');
-                        this.codeBtn = '获取验证码';
-                        clearInterval(this.timer);
+                      ele.classList.remove('alredy-send');
+                      this.codeBtn = '获取验证码';
+                      clearInterval(this.timer);
                     }
                 },1000)
                 
                 let param = {
-                    mobile:this.phoneNumber
+                  mobile:this.phoneNumber
                 }
                 // let sign = this.md5(sign_rules(param));
                 let sign = "84bb961185899b01663a6cd705a53cbd";

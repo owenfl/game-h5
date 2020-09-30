@@ -51,6 +51,8 @@
 </template>
 
 <script>
+import { setCookie, getCookie } from './../assets/js/cookie'
+
 export default {
   name: 'login',
   props: {
@@ -67,14 +69,20 @@ export default {
     };
   },
   mounted() {
-
+    this.$nextTick(()=>{
+      this.init()
+    })
   },
   methods:{
+    init() {
+			if(getCookie('token') && getCookie('uid')){
+				this.$router.push('/home')
+			}
+    },
     goBack() {
       this.$router.go(-1)
     },
     loginbtn() {
-
       this.$axios.post('appapi/',{
         user_login:this.phoneNumber,
         user_pass:this.password,
@@ -82,12 +90,19 @@ export default {
       }).then((response) => {
         let res = response.data.data;
         if(res.code == 0){
-          localStorage.setItem('uid',res.info[0].id);//存储uid
-          localStorage.setItem('token',res.info[0].token);//token值getUserInfo
+
+          this.$toast.text('登录成功!');
+
+          setCookie('uid',res.info[0].id,1000*60)
+          setCookie('token',res.info[0].token,1000*60)
+          
+          setTimeout(function(){
+            // this.$router.push('home')
+            this.$router.push({path:'home',query:{id:1}})
+          }.bind(this),1000)
 
           console.log(res.info[0].id,res.info[0].token,res.info[0])
-          this.$toast.text('登录成功!');
-          this.$router.push('home')
+
         }
       })
 

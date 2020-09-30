@@ -11,6 +11,12 @@ import '@nutui/nutui-jdl/dist/nutui.css';
 NutUI.install(Vue);
 
 
+// let clientWidth = document.documentElement.clientWidth;
+// if (clientWidth > 768) {
+//   document.documentElement.style.fontSize = 100 + 'px';
+// }
+
+
 Vue.prototype.$EventBus = new Vue();
 Vue.prototype.$axios = axios
 axios.defaults.baseURL = 'http://live.zbitcloud.com/'
