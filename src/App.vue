@@ -10,16 +10,16 @@ export default {
 }
 </script>
 
-<style>
+<style lang="less">
 #app {
   font-family: "微软雅黑", Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* html, body {
+html, body {
   background: #F7F7F7;
-} */
+} 
 
 li{
   list-style: none;
@@ -49,6 +49,14 @@ li{
 .mgR18 {
   margin-right: 0.18rem;
 }
+.pdL18 {
+  padding-left: 0.18rem;
+}
+.pdR18 {
+  padding-right: 0.18rem;
+}
+
+
 .mgL8 {
   margin-left: 0.08rem;
 }
@@ -56,6 +64,32 @@ li{
   margin-right: 0.08rem;
 }
 
+.mgT20 {
+  margin-top: 0.2rem;
+}
+
+.schedule {
+  .nut-tab-item {
+    height: 0 !important;
+    padding: 0 !important;
+    border: 0px solid #fff;
+  }
+  .nut-tab-link {
+    color: #FF5116 !important;
+  }
+  .nav-bar-top {
+    background: #FF5116 !important;
+  }
+  .nut-tab-disable .nut-tab-link {
+    color: #2B2626 !important;
+  }
+}
+
+
+
+.bgF {
+  background: #ffffff;
+}
 
 @media (max-width: 1920px) {
   html {

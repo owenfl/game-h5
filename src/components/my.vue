@@ -91,7 +91,7 @@ export default {
       this.$axios.post('appapi/',{
           uid: getCookie('uid'),
           token: getCookie('token'),
-          service: 'PCLogin.Logout'
+          service: 'Login.Logout'
       }).then((response) => {
           let res = response.data.data;
           if(res.code == 0){

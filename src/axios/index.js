@@ -32,7 +32,12 @@ axios.interceptors.response.use(response => {
     // if (response.data.data.)
     let data = response.data.data;
     // if (data && data.code && data.code !== 0 && data.code !== 1) Message({showClose: true, message: data.msg, type: 'warning'});
-    if (data && data.code && data.code !== 0 && data.code !== 1) layer(Vue).msg(data.msg);
+
+    // if (data && data.code && data.code !== 0 && data.code !== 1) layer(Vue).msg(data.msg);
+    if (data && data.code && data.code !== 0 && data.code !== 1) {
+        console.log("axios/index.js:",data.msg)
+    }
+
     if (data && data.code === 700) {
         localStorage.clear();
         setTimeout(() => {

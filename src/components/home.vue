@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="head mgL18 mgR18">
+    <div class="head bgF pdL18 pdR18">
       <div class="logo">
         <img src="./../assets/images/home/logo.png" />
       </div>
@@ -66,14 +66,14 @@
     </div>
 
 
-    <div class="recommend-live">
+    <div class="recommend-live bgF">
       <div class="title ">
         <div class="huo mgL18"></div>
         <div class="tt01">推荐直播</div>
-        <div class="tt02">查看更多</div>
-        <div class="arrow-r mgR18"></div>
+        <!-- <div class="tt02">查看更多</div>
+        <div class="arrow-r mgR18"></div> -->
       </div>
-      <div class="liveBox mgL18 mgR18">
+      <div class="liveBox pdL18 pdR18">
         <div class="item">
           <router-link to="detail">
           <div class="playBox"></div>
@@ -293,7 +293,7 @@ export default {
     .title {
       display: flex;
       align-items: center;
-      margin-top: 0.18rem;
+      padding-top: 0.18rem;
       margin-bottom: 0.22rem;
       .huo {
         width: 0.34rem;

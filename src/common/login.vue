@@ -63,8 +63,10 @@ export default {
       val5: '',
       state:"error",
 
-      phoneNumber:'13712345678',
-      password:'123qwe1',
+      // phoneNumber:'13712345678',
+      // password:'123qwe1',
+      phoneNumber:'13788888888',
+      password:'a123456',
 
     };
   },
@@ -75,7 +77,7 @@ export default {
   },
   methods:{
     init() {
-			if(getCookie('token') && getCookie('uid')){
+			if(getCookie('token') && getCookie('uid')) {
 				this.$router.push('/home')
 			}
     },

@@ -11,14 +11,14 @@ export default {
       menus: [
         {
           tabTitle: '首页',
-          curr: true,
+          curr: false,
           // href:"/home",
           icon: require('./../assets/images/menu/home.png'),
           activeIcon: require('./../assets/images/menu/home-cur.png')
         },
         {
           tabTitle: '赛事',
-          curr: false,
+          curr: true,
           // href:"",
           icon: require('./../assets/images/menu/competition.png'),
           activeIcon: require('./../assets/images/menu/competition-cur.png')
@@ -56,13 +56,13 @@ export default {
           this.$router.push('home')
           break;
         case 1:
-          this.$router.push('login')
+          this.$router.push('schedule')
           break;
         case 2:
           this.$router.push('my')
           break;
         default:
-        this.$router.push('/')
+          this.$router.push('/')
       } 
 
     }

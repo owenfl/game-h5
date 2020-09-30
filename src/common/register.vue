@@ -68,7 +68,7 @@
 </template>
 
 <script>
-
+import sign_rules from './../assets/js/sign_rules.js'//验证接口信息加密规则
 
 export default {
   name: 'login',
@@ -82,10 +82,9 @@ export default {
 
 
       isShow: false,
-      phoneNumber:'',
       phoneNumber:'13788888888',
       checkCode:'123456',
-      userCheckCode:'',
+
       password:'123qwe1',
       codeBtn:'获取验证码',
       timer:null,
@@ -104,7 +103,7 @@ export default {
         if(this.codeBtn === '获取验证码'){
             let reg = /^1\d{10}$/;
             if(!reg.test(this.phoneNumber)){
-                this.$EventBus.$emit('hide','请输入格式正确的手机号');
+              this.$toast.text('请输入格式正确的手机号!');
             }else{
                 let ele = e.target,timeScound = 60;
                 ele.classList.add('alredy-send');
@@ -118,17 +117,19 @@ export default {
                       clearInterval(this.timer);
                     }
                 },1000)
-                
+
+
+
                 let param = {
                   mobile:this.phoneNumber
                 }
-                // let sign = this.md5(sign_rules(param));
-                let sign = "84bb961185899b01663a6cd705a53cbd";
-
-                // param.service = 'PCLogin.GetCode';
+                let sign = this.md5(sign_rules(param));
+                param.sign = sign;
                 param.service = 'Login.GetCode';
 
-                param.sign = sign;
+
+                // let sign = "84bb961185899b01663a6cd705a53cbd";
+
                 // this.$axios.post('appapi/',param).then((response) => {
                 //     let res = res.data.data;
                 //     if(res.code == 0){
@@ -138,12 +139,10 @@ export default {
                 //     // console.log(this.userCheckCode);
                 // })
                 this.$axios.post('appapi/',param).then((response) => {
-                    let res = res.data.data;
-                    if(res.code == 0){
-                        
-                    }
-                    // this.userCheckCode = res.data.data.msg;
-                    // console.log(this.userCheckCode);
+                  // let res = res.data.data;
+                  // if(res.code == 0){
+                      
+                  // }
                 })
 
             }

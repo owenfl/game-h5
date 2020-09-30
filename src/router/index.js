@@ -25,6 +25,11 @@ export default new Router({
     },
 
     {
+      path: '/schedule',
+      name: 'schedule',
+      component: resolve => require(['../components/schedule'], resolve)
+    },
+    {
       path: '/my',
       name: 'my',
       component: resolve => require(['../components/my'], resolve)
