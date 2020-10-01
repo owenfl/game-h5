@@ -6,7 +6,7 @@ import home from '../components/home'
 Vue.use(Router)
 
 export default new Router({
-  mode: 'history',
+  // mode: 'history',
   routes: [
     {
       path: '*',
@@ -23,12 +23,28 @@ export default new Router({
       name: 'detail',
       component: resolve => require(['../components/detail'], resolve)
     },
-
     {
       path: '/schedule',
       name: 'schedule',
       component: resolve => require(['../components/schedule'], resolve)
     },
+    {
+      path: '/scheduling',
+      name: 'scheduling',
+      component: resolve => require(['../components/scheduling'], resolve)
+    },
+    {
+      path: '/fixtures',
+      name: 'fixtures',
+      component: resolve => require(['../components/fixtures'], resolve)
+    },
+    {
+      path: '/scheduleend',
+      name: 'scheduleend',
+      component: resolve => require(['../components/scheduleend'], resolve)
+    },
+
+
     {
       path: '/my',
       name: 'my',

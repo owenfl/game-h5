@@ -21,6 +21,15 @@ html, body {
   background: #F7F7F7;
 } 
 
+
+.my, .detail {
+  background: #ffffff;
+  height: 100vh;
+}
+
+
+
+
 li{
   list-style: none;
 }
@@ -80,12 +89,59 @@ li{
   .nav-bar-top {
     background: #FF5116 !important;
   }
+  .nut-tab-link,
   .nut-tab-disable .nut-tab-link {
     color: #2B2626 !important;
   }
 }
 
 
+.scheduleend,.scheduling {
+  .nut-navbar {
+    border-bottom: 1px solid #F5F6F7;
+  }
+  .nut-calendar-month-day-active {
+    background-color: #FF865C !important;
+  }
+  .nut-calendar-confirm-btn {
+    background-color: #FF865C !important;
+  }
+  .nut-calendar-month-day-choose {
+    color: #FF5116 !important;
+  }
+
+}
+
+
+
+.clA {
+  color: #FF5116;
+}
+.clAend {
+  color: #e9b6a3;
+}
+.clend {
+  color: #a8a8a8;
+}
+
+
+
+
+
+
+
+.clC {
+  color: #2B2626;
+}
+.clO {
+  color: #000000;
+}
+
+
+
+.mgT24 {
+  margin-top: 0.24rem;
+}
 
 .bgF {
   background: #ffffff;

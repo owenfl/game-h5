@@ -95,8 +95,8 @@ export default {
 
           this.$toast.text('登录成功!');
 
-          setCookie('uid',res.info[0].id,1000*60)
-          setCookie('token',res.info[0].token,1000*60)
+          setCookie('uid',res.info[0].id,90000*60)
+          setCookie('token',res.info[0].token,90000*60)
           
           setTimeout(function(){
             // this.$router.push('home')

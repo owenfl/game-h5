@@ -7,7 +7,8 @@ export default new Vuex.Store({
     state: {
         token: false,
         isLogin: false,
-        userInfo: false,
+        userInfo: {},
+        
         userloginInfo: false,
     },
     getters: {
@@ -18,6 +19,11 @@ export default new Vuex.Store({
     },
     // 改变数据方法的集合，同步
     mutations: {
+
+        getUserInfo(state,info){
+            state.userInfo = info;
+        },
+
         setToken: (state, data) => state.token = data,
         setIsLogin: (state, data) => state.isLogin = data,
         setUserInfo: (state, data) => state.userInfo = data,

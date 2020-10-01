@@ -11,15 +11,15 @@ export default {
       menus: [
         {
           tabTitle: '首页',
-          curr: false,
-          // href:"/home",
+          curr: true,
+          href:"#/home",
           icon: require('./../assets/images/menu/home.png'),
           activeIcon: require('./../assets/images/menu/home-cur.png')
         },
         {
           tabTitle: '赛事',
-          curr: true,
-          // href:"",
+          curr: false,
+          href:"#/schedule",
           icon: require('./../assets/images/menu/competition.png'),
           activeIcon: require('./../assets/images/menu/competition-cur.png')
         },
@@ -40,7 +40,7 @@ export default {
         {
           tabTitle: '我的',
           curr: false,
-          // href:"/#/my",
+          href:"#/my",
           icon: require('./../assets/images/menu/my.png'),
           activeIcon: require('./../assets/images/menu/my-cur.png')
         }
@@ -51,19 +51,20 @@ export default {
     tabSwitch: function(value, index) {
       console.log(value, index);
 
-      switch(index) {
-        case 0:
-          this.$router.push('home')
-          break;
-        case 1:
-          this.$router.push('schedule')
-          break;
-        case 2:
-          this.$router.push('my')
-          break;
-        default:
-          this.$router.push('/')
-      } 
+      // switch(index) {
+      //   case 0:
+      //     this.$router.push('home')
+      //     break;
+      //   case 1:
+      //     this.$router.push('schedule')
+      //     break;
+      //   case 2:
+      //     this.$router.push('my')
+      //     break;
+      //   default:
+      //     this.$router.push('/')
+      // } 
+
 
     }
   }

@@ -1,30 +1,43 @@
 <template>
-  <div>
+  <div class="my">
     <div class="headbg">
       <div class="disBox">
-        <div class="portrait"></div>
+        <div class="portrait">
+          <img :src="avatar" alt="">
+        </div>
         <div class="portrait-right">
-          <div class="nick-name">Tommy</div>
+          <router-link to="login" v-if="!isLogin" class="nick-name">
+            <p>点击登录</p>
+            <p style="font-size: 0.24rem;">您当前是访问身份</p>
+          </router-link>
 
-          <div class="boxCenter">
-            <div class="genderBox">
-              <div class="star"></div>
+          <div v-if="isLogin">
+            <div class="nick-name">
+              <!-- {{$store.state.userInfo.user_nicename || ''}} -->
+              {{$store.state.userInfo.user_nicename}}
             </div>
-            <div class="liveBox" style="margin-left: 0.12rem; margin-right: 0.12rem;">
-              <div class="live"></div>
-              <span>7</span>
+            <!-- <div class="boxCenter">
+              <div class="genderBox">
+                <div class="star"></div>
+              </div>
+              <div class="liveBox" style="margin-left: 0.12rem; margin-right: 0.12rem;">
+                <div class="live"></div>
+                <span>7</span>
+              </div>
+              <div class="starBox">
+                <div class="star"></div>
+                <span>20</span>
+              </div>
+            </div> -->
+            <div class="pre-id">
+              ID:{{$store.state.userInfo.id}}
             </div>
-            <div class="starBox">
-              <div class="star"></div>
-              <span>20</span>
-            </div>
+            <!-- <div class="pre-id">
+              <span style="margin-right: 0.44rem;">15  粉丝</span>
+              <span>45  关注</span>
+            </div> -->
           </div>
 
-          <div class="pre-id">ID:2345556</div>
-          <div class="pre-id">
-            <span style="margin-right: 0.44rem;">15  粉丝</span>
-            <span>45  关注</span>
-          </div>
         </div>
       </div>
     </div>
@@ -52,9 +65,9 @@
         <div class="boxFlex">意见反馈</div>
         <div class="icon-arrow-right"></div>
       </div>
-      <div class="boxCenter" @click="signOut">
+      <div v-if="isLogin" class="boxCenter" @click="signOut">
         <div class="icon exit"></div>
-        <div class="boxFlex">退出 {{noLogin}} </div>
+        <div class="boxFlex">退出</div>
         <div class="icon-arrow-right"></div>
       </div>
     </div>
@@ -74,41 +87,69 @@ export default {
   },
   data () {
     return {
-      noLogin:true,
-
+      isLogin:true,
+      avatar: require('./../assets/images/my/head.png')
     }
   },
   mounted(){
     this.$nextTick(()=>{
-      if(getCookie('token')){
-        this.noLogin = false;
+      this.getBaseInfo()
+
+      if(!getCookie('uid') || !getCookie('token')){
+        this.isLogin = false;
+      } else {
+        this.isLogin = true;
       }
+      
     })
   },
   methods:{
 
     signOut(){//退出登录
       this.$axios.post('appapi/',{
-          uid: getCookie('uid'),
-          token: getCookie('token'),
-          service: 'Login.Logout'
+        uid: getCookie('uid'),
+        token: getCookie('token'),
+        service: 'Login.Logout'
       }).then((response) => {
-          let res = response.data.data;
-          if(res.code == 0){
-            delCookie('uid');
-            delCookie('token');
+        let res = response.data.data;
+        if(res.code == 0){
+          delCookie('uid');
+          delCookie('token');
+          this.isLogin = true;
 
-            this.noLogin = true;
-            console.log(res)
-          }
+          this.$toast.text('退出成功!');
+          setTimeout(() => {
+            this.$router.push('login')
+          },1000)
+
+          console.log(res)
+        }
       })
 
-      setTimeout(() => {
-        this.$router.push('login')
-      },1000)
-
-
     },
+    getBaseInfo() {
+      this.$axios.post('appapi/',{
+        uid: getCookie('uid'),
+        token: getCookie('token'),
+        service:'User.GetBaseInfo'
+      }).then((response) => {
+        let res = response.data.data;
+        if(res.code == 0){
+          console.log("info：：", res.info[0] );
+
+          // context.commit('getUserInfo',res.info[0]);
+          this.$store.commit('getUserInfo',res.info[0]);
+          this.avatar = res.info[0].avatar
+
+          console.log( "dsfadsa:::",this.$store.state.userInfo )
+        } else {
+          delCookie('uid');
+          delCookie('token');
+          this.isLogin = false;
+        }
+      })
+
+    }
 
 
   }
@@ -137,12 +178,19 @@ export default {
       height: 1.33rem;
       border-radius: 50%;
       background: #FFE9E4E3;
+      img {
+        max-width: 100%;
+        width: 100%;
+      }
     }
     .portrait-right {
+      margin-top: 0.22rem;
+      // padding-top: 0.22rem;
       .nick-name {
         font-size: 0.42rem;
         font-weight: 600;
         color: #FFFFFF;
+        text-decoration: none;
       }
 
       .boxCenter {
