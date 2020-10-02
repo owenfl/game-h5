@@ -49,196 +49,198 @@
       </nut-tab>
     </div>
 
-
-    <div class="boxCenter bdlt bgF mgT20">
-      <div class="tt">
-        <div class="lt">
-          <p class="otw">夏季赛</p>
-          <p class="clC lt-rt">10:26</p>
+    <div @click="goScheduleitems">
+      <div class="boxCenter bdlt bgF mgT20">
+        <div class="tt">
+          <div class="lt">
+            <p class="otw">夏季赛</p>
+            <p class="clC lt-rt">10:26</p>
+          </div>
+          <p class="ct clA">第二局</p>
+          <div class="rt">
+            <div class="friend"></div>
+            <p class="clC">2345</p>
+          </div>
         </div>
-        <p class="ct clA">第二局</p>
-        <div class="rt">
-          <div class="friend"></div>
-          <p class="clC">2345</p>
+
+        <div class="items">
+          <div class="left">
+
+            <div class="box">
+              <div class="lt">
+                <p>0</p>
+                <p class="mgT24">1</p>
+              </div>
+              <div class="icon">
+                <img src="../assets/images/schedule/GAM.png" />
+                <img class="mgT24" src="../assets/images/schedule/GAM.png" />
+              </div>
+              <div>
+                <p>GAM</p>
+                <p class="mgT24">EVS</p>
+              </div>
+            </div>
+
+            <div class="rt clA">
+              <p>18</p>
+              <p class="mgT24">15</p>
+            </div>
+
+          </div>
+          <div class="right">
+            <div class="top">
+              <p>1.61</p>
+              <p class="mgT24">2.23</p>
+            </div>
+            <div class="icon bofang"></div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="boxCenter bdlt bgF mgT20">
+        <div class="tt">
+          <div class="lt">
+            <p class="otw">2020ldl夏季赛…</p>
+            <p class="clC lt-rt">10:26</p>
+          </div>
+          <p class="ct clA">第一局</p>
+          <div class="rt">
+            <div class="friend"></div>
+            <p class="clC">2345</p>
+          </div>
+        </div>
+
+        <div class="items">
+          <div class="left">
+
+            <div class="box">
+              <div class="lt">
+                <p>0</p>
+                <p class="mgT24">1</p>
+              </div>
+              <div class="icon">
+                <img src="../assets/images/schedule/GAM.png" />
+                <img class="mgT24" src="../assets/images/schedule/GAM.png" />
+              </div>
+              <div>
+                <p>GAM</p>
+                <p class="mgT24">EVS</p>
+              </div>
+            </div>
+
+            <div class="rt clA">
+              <p>18</p>
+              <p class="mgT24">15</p>
+            </div>
+
+          </div>
+          <div class="right">
+            <div class="top">
+              <p>1.61</p>
+              <p class="mgT24">2.23</p>
+            </div>
+            <div class="icon bofang"></div>
+          </div>
         </div>
       </div>
 
-      <div class="items">
-        <div class="left">
-
-          <div class="box">
-            <div class="lt">
-              <p>0</p>
-              <p class="mgT24">1</p>
-            </div>
-            <div class="icon">
-              <img src="../assets/images/schedule/GAM.png" />
-              <img class="mgT24" src="../assets/images/schedule/GAM.png" />
-            </div>
-            <div>
-              <p>GAM</p>
-              <p class="mgT24">EVS</p>
-            </div>
+      <div class="boxCenter bgF mgT20">
+        <div class="tt">
+          <div class="lt">
+            <p class="otw clC">夏季赛</p>
+            <p class="clC lt-rt">10:26</p>
           </div>
-
-          <div class="rt clA">
-            <p>18</p>
-            <p class="mgT24">15</p>
+          <p class="ct clA clO">未开赛</p>
+          <div class="rt">
+            <div class="friend"></div>
+            <p class="clC">2345</p>
           </div>
-
         </div>
-        <div class="right">
-          <div class="top">
-            <p>1.61</p>
-            <p class="mgT24">2.23</p>
+
+        <div class="items">
+          <div class="left">
+
+            <div class="box">
+              <div class="lt">
+                <p>0</p>
+                <p class="mgT24">1</p>
+              </div>
+              <div class="icon">
+                <img src="../assets/images/schedule/GAM.png" />
+                <img class="mgT24" src="../assets/images/schedule/GAM.png" />
+              </div>
+              <div>
+                <p>GAM</p>
+                <p class="mgT24">EVS</p>
+              </div>
+            </div>
+
+            <div class="rt clA clAend">
+              <p>18</p>
+              <p class="mgT24">15</p>
+            </div>
+
           </div>
-          <div class="icon bofang"></div>
+          <div class="right">
+            <div class="top clend">
+              <!-- <p>1.61</p>
+              <p class="mgT24">2.23</p> -->
+            </div>
+            <div class="icon lol2"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="boxCenter bgF mgT20">
+        <div class="tt">
+          <div class="lt">
+            <p class="otw clC">夏季赛</p>
+            <p class="clC lt-rt">10:26</p>
+          </div>
+          <p class="ct clA clO">完</p>
+          <div class="rt">
+            <div class="friend"></div>
+            <p class="clC">2345</p>
+          </div>
+        </div>
+
+        <div class="items">
+          <div class="left">
+
+            <div class="box">
+              <div class="lt">
+                <p>0</p>
+                <p class="mgT24">1</p>
+              </div>
+              <div class="icon">
+                <img src="../assets/images/schedule/GAM.png" />
+                <img class="mgT24" src="../assets/images/schedule/GAM.png" />
+              </div>
+              <div>
+                <p>GAM</p>
+                <p class="mgT24">EVS</p>
+              </div>
+            </div>
+
+            <div class="rt clA clAend">
+              <p>18</p>
+              <p class="mgT24">15</p>
+            </div>
+
+          </div>
+          <div class="right">
+            <div class="top clend">
+              <p>1.61</p>
+              <p class="mgT24">2.23</p>
+            </div>
+            <div class="icon lol3"></div>
+          </div>
         </div>
       </div>
     </div>
-  
-    <div class="boxCenter bdlt bgF mgT20">
-      <div class="tt">
-        <div class="lt">
-          <p class="otw">2020ldl夏季赛…</p>
-          <p class="clC lt-rt">10:26</p>
-        </div>
-        <p class="ct clA">第一局</p>
-        <div class="rt">
-          <div class="friend"></div>
-          <p class="clC">2345</p>
-        </div>
-      </div>
-
-      <div class="items">
-        <div class="left">
-
-          <div class="box">
-            <div class="lt">
-              <p>0</p>
-              <p class="mgT24">1</p>
-            </div>
-            <div class="icon">
-              <img src="../assets/images/schedule/GAM.png" />
-              <img class="mgT24" src="../assets/images/schedule/GAM.png" />
-            </div>
-            <div>
-              <p>GAM</p>
-              <p class="mgT24">EVS</p>
-            </div>
-          </div>
-
-          <div class="rt clA">
-            <p>18</p>
-            <p class="mgT24">15</p>
-          </div>
-
-        </div>
-        <div class="right">
-          <div class="top">
-            <p>1.61</p>
-            <p class="mgT24">2.23</p>
-          </div>
-          <div class="icon bofang"></div>
-        </div>
-      </div>
-    </div>
 
 
-    <div class="boxCenter bgF mgT20">
-      <div class="tt">
-        <div class="lt">
-          <p class="otw clC">夏季赛</p>
-          <p class="clC lt-rt">10:26</p>
-        </div>
-        <p class="ct clA clO">未开赛</p>
-        <div class="rt">
-          <div class="friend"></div>
-          <p class="clC">2345</p>
-        </div>
-      </div>
 
-      <div class="items">
-        <div class="left">
-
-          <div class="box">
-            <div class="lt">
-              <p>0</p>
-              <p class="mgT24">1</p>
-            </div>
-            <div class="icon">
-              <img src="../assets/images/schedule/GAM.png" />
-              <img class="mgT24" src="../assets/images/schedule/GAM.png" />
-            </div>
-            <div>
-              <p>GAM</p>
-              <p class="mgT24">EVS</p>
-            </div>
-          </div>
-
-          <div class="rt clA clAend">
-            <p>18</p>
-            <p class="mgT24">15</p>
-          </div>
-
-        </div>
-        <div class="right">
-          <div class="top clend">
-            <!-- <p>1.61</p>
-            <p class="mgT24">2.23</p> -->
-          </div>
-          <div class="icon lol2"></div>
-        </div>
-      </div>
-    </div>
-
-
-    <div class="boxCenter bgF mgT20">
-      <div class="tt">
-        <div class="lt">
-          <p class="otw clC">夏季赛</p>
-          <p class="clC lt-rt">10:26</p>
-        </div>
-        <p class="ct clA clO">完</p>
-        <div class="rt">
-          <div class="friend"></div>
-          <p class="clC">2345</p>
-        </div>
-      </div>
-
-      <div class="items">
-        <div class="left">
-
-          <div class="box">
-            <div class="lt">
-              <p>0</p>
-              <p class="mgT24">1</p>
-            </div>
-            <div class="icon">
-              <img src="../assets/images/schedule/GAM.png" />
-              <img class="mgT24" src="../assets/images/schedule/GAM.png" />
-            </div>
-            <div>
-              <p>GAM</p>
-              <p class="mgT24">EVS</p>
-            </div>
-          </div>
-
-          <div class="rt clA clAend">
-            <p>18</p>
-            <p class="mgT24">15</p>
-          </div>
-
-        </div>
-        <div class="right">
-          <div class="top clend">
-            <p>1.61</p>
-            <p class="mgT24">2.23</p>
-          </div>
-          <div class="icon lol3"></div>
-        </div>
-      </div>
-    </div>
 
 
     <menu-component></menu-component>
@@ -262,6 +264,12 @@ export default {
     this.$nextTick(()=>{ })
   },
   methods:{
+
+    goScheduleitems() {
+      this.$router.push('scheduleitems')
+    },
+
+
     tabSwitch(index,event) {
       switch(index) {
         case 1:

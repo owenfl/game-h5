@@ -100,6 +100,7 @@ export default {
           setCookie('uid',res.info[0].id,90000*60)
           setCookie('token',res.info[0].token,90000*60)
           
+          
           setTimeout(function(){
             // this.$router.push('home')
             this.$router.push({path:'home',query:{id:1}})

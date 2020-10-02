@@ -128,7 +128,19 @@ li{
   }
 
 }
+.detail, .scheduleDetail {
+  .nut-tab-link {
+    color: #FF5116;
+  }
+  .nav-bar-top {
+    background: #FF5116;
+  }
+}
 
+
+.bgclF {
+  background-color: #ffffff;
+}
 
 
 .clA {
