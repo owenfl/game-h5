@@ -179,6 +179,7 @@ export default {
 
   data(){
     return{
+
       dataItem: [{
         name:1,
         imgSrc: require('./../assets/images/home/ban.png')
@@ -197,11 +198,37 @@ export default {
   },
   mounted(){
     this.$nextTick(()=>{
-      this.$store.dispatch("setShowMenu", true)
+      this.getBanner()
 
+      this.$store.dispatch("setShowMenu", true)
     })
   },
   methods:{
+
+    getBanner() {
+      this.$axios.post('appapi/',{
+        // uid: getCookie('uid'),
+        // token: getCookie('token'),
+        service:'Home.GetSlideEvents'
+      }).then((response) => {
+
+        // console.log(response )
+        console.log(response.data.data.info[0].slide )
+
+
+
+        // let res = response.data.data;
+        // if(res.code == 0){
+        //   this.$store.dispatch("setUserloginInfo",res.info[0]);
+        // } else {
+        //   delCookie('uid');
+        //   delCookie('token');
+        //   this.isLogin = false;
+        // }
+
+      })
+    }
+
 
 
   }

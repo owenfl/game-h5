@@ -110,7 +110,8 @@ export default {
     })
   },
   methods:{
-    tabSwitch() {}
+    tabSwitch() {},
+    goPlay() {}
 
   }
 
