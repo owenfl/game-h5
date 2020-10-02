@@ -4,7 +4,7 @@
     <div class="mask"></div>
     <div class="maskbg">
       <img src="./../assets/images/schedule/scheduleDetail/maskbg.png" />
-      <div class="box bgclF">
+      <div class="box bgF">
         <!-- 备注 H5端无需播放 赛事，APP播放 -->
         <div class="view">免费观看直播和赛事</div>
         <div class="dl">下载APP</div>
@@ -228,6 +228,8 @@ export default {
         // height: 46vh;
       }
       .box.wechat {
+        padding: 0.2rem;
+
         .content {
           display: flex;
           align-items: center;

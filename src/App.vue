@@ -30,21 +30,26 @@ export default {
   -moz-osx-font-smoothing: grayscale;
 }
 
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: none;
+  padding: 0;
+}
+
 html, body {
   background: #F7F7F7;
 } 
 
-
-
-.my, .detail,
+.home, .my, .detail,
 .scheduleitems,
 .scheduleDetail
 {
   background: #ffffff;
   height: 100vh;
 }
-
-
 
 
 li{
@@ -54,14 +59,6 @@ li{
   display: none;
 }
 
-* {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  border: none;
-  padding: 0;
-}
 
 .otw {
   overflow: hidden;
@@ -93,6 +90,9 @@ li{
 .mgT20 {
   margin-top: 0.2rem;
 }
+
+
+
 
 .schedule {
   .nut-tab-item {
@@ -130,18 +130,31 @@ li{
 }
 .detail, .scheduleDetail {
   .nut-tab-link {
-    color: #FF5116;
+    color: #2B2626 !important;
+  }
+  .nut-tab-active .nut-tab-link {
+    color: #FF5116 !important;
   }
   .nav-bar-top {
-    background: #FF5116;
+    background: #FF5116 !important;
+  }
+  .nut-tab-item {
+    padding: 0;
+  }
+}
+
+.nut-tabbar {
+  .curr {
+    color: #2B2626;
+    color: #000;
   }
 }
 
 
-.bgclF {
-  background-color: #ffffff;
-}
 
+.bgF {
+  background: #ffffff;
+}
 
 .clA {
   color: #FF5116;
@@ -172,9 +185,9 @@ li{
   margin-top: 0.24rem;
 }
 
-.bgF {
-  background: #ffffff;
-}
+
+
+
 
 @media (max-width: 1920px) {
   html {

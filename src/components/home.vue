@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="home">
     <div class="head bgF pdL18 pdR18">
       <div class="logo">
         <img src="./../assets/images/home/logo.png" />
@@ -24,6 +24,8 @@
       </nut-swiper>
     </div>
 
+
+
     <div class="homeBox">
 
       <div class="item">
@@ -44,6 +46,7 @@
         2020LOL世界s10冠军赛
         </div>
       </div>
+
       <div class="item">
         <div class="top">
           <p>英雄联盟</p>
@@ -61,8 +64,65 @@
         <div class="bottom otw">
         2020LOL世界s10冠军赛
         </div>
-
       </div>
+
+      <div class="item">
+        <div class="top">
+          <p>英雄联盟</p>
+          <div class="game pre">未开始</div>
+        </div>
+        <div class="midel">
+          <div class="logo">
+            <img src="" alt="">
+          </div>
+          <div class="text">今晚09:00</div>
+          <div class="logo">
+            <img src="" alt="">
+          </div>
+        </div>
+        <div class="bottom otw">
+        2020LOL世界s10冠军赛
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="top">
+          <p>英雄联盟</p>
+          <div class="game begin">比赛中</div>
+        </div>
+        <div class="midel">
+          <div class="logo">
+            <img src="" alt="">
+          </div>
+          <div class="text">23 : 12</div>
+          <div class="logo">
+            <img src="" alt="">
+          </div>
+        </div>
+        <div class="bottom otw">
+        2020LOL世界s10冠军赛
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="top">
+          <p>英雄联盟</p>
+          <div class="game pre">未开始</div>
+        </div>
+        <div class="midel">
+          <div class="logo">
+            <img src="" alt="">
+          </div>
+          <div class="text">今晚09:00</div>
+          <div class="logo">
+            <img src="" alt="">
+          </div>
+        </div>
+        <div class="bottom otw">
+        2020LOL世界s10冠军赛
+        </div>
+      </div>
+
     </div>
 
 
@@ -210,9 +270,19 @@ export default {
     padding: 0.16rem 0.11rem 0.2rem;
     // margin-left: 0.11rem;
     // margin-right: 0.11rem;
+
     flex-direction: row;
     flex-wrap: nowrap;
     display: flex;
+
+    max-width: 100%;
+    width: 100%;
+
+    overflow: hidden;
+    overflow-x: scroll;
+    -ms-overflow-style: none;  
+    overflow: -moz-scrollbars-none; 
+
     .item {
       width: 3.51rem;
       height: 1.8rem;
@@ -282,6 +352,23 @@ export default {
       }
 
     }
+  }
+  .homeBox::-webkit-scrollbar { 
+    width: 0 !important
+  }
+  .homeBox::-webkit-scrollbar {  
+    width: 0rem;
+    height: 0rem;
+  }  
+  .homeBox::-webkit-scrollbar-track {  
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);  
+    border-radius: 10px;
+    background-color: #F7F7F7;
+  }  
+  .homeBox::-webkit-scrollbar-thumb {  
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);  
+    background-color:#FF5116;
   }
 
 
