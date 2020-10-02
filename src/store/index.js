@@ -8,32 +8,28 @@ export default new Vuex.Store({
         token: false,
         isLogin: false,
         userInfo: {},
-        
-        userloginInfo: false,
+        userloginInfo: {},
     },
     getters: {
-        getToken: state => state.token,
-        getIsLogin: state => state.isLogin,
-        getUserInfo: state => state.userInfo,
-        getUserloginInfo: state => state.userloginInfo,
+        // getToken: state => state.token,
+        // getIsLogin: state => state.isLogin,
+        // getUserInfo: state => state.userInfo,
+        // getUserloginInfo: state => state.userloginInfo,
     },
     // 改变数据方法的集合，同步
     mutations: {
+        // setToken: (state, data) => state.token = data,
+        // setIsLogin: (state, data) => state.isLogin = data,
+        // setUserInfo: (state, data) => state.userInfo = data,
 
-        getUserInfo(state,info){
-            state.userInfo = info;
-        },
-
-        setToken: (state, data) => state.token = data,
-        setIsLogin: (state, data) => state.isLogin = data,
-        setUserInfo: (state, data) => state.userInfo = data,
         setUserloginInfo: (state, data) => state.userloginInfo = data,
     },
     // 异步
     actions: {
-        setToken: (context, payload) => context.commit('setToken', payload),
-        setIsLogin: (context, payload) => context.commit('setIsLogin', payload),
-        setUserInfo: (context, payload) => context.commit('setUserInfo', payload),
+        // setToken: (context, payload) => context.commit('setToken', payload),
+        // setIsLogin: (context, payload) => context.commit('setIsLogin', payload),
+        // setUserInfo: (context, payload) => context.commit('setUserInfo', payload),
+
         setUserloginInfo: (context, payload) => context.commit('setUserloginInfo', payload),
     },
     // 让每个模块都有自己的state

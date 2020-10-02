@@ -3,7 +3,7 @@
     <div class="headbg">
       <div class="disBox">
         <div class="portrait">
-          <img :src="avatar" alt="">
+          <img :src="userloginInfo.avatar" alt="">
         </div>
         <div class="portrait-right">
           <router-link to="login" v-if="!isLogin" class="nick-name">
@@ -13,8 +13,8 @@
 
           <div v-if="isLogin">
             <div class="nick-name">
-              <!-- {{$store.state.userInfo.user_nicename || ''}} -->
-              {{$store.state.userInfo.user_nicename}}
+              {{userloginInfo.user_nicename}}
+              <!-- {{$store.state.userInfo.user_nicename}} -->
             </div>
             <!-- <div class="boxCenter">
               <div class="genderBox">
@@ -29,8 +29,9 @@
                 <span>20</span>
               </div>
             </div> -->
-            <div class="pre-id">
-              ID:{{$store.state.userInfo.id}}
+            <div v-if="isLogin" class="pre-id">
+              <!-- ID:{{$store.state.userInfo.id}} -->
+              ID:{{userloginInfo.id}}
             </div>
             <!-- <div class="pre-id">
               <span style="margin-right: 0.44rem;">15  粉丝</span>
@@ -79,6 +80,7 @@
 <script>
 import menuComponent from './../common/menu'
 import { getCookie, delCookie } from './../assets/js/cookie'
+import {mapState, mapGetters, mapMutations, mapActions} from 'vuex';
 
 export default {
   name: 'my',
@@ -88,8 +90,14 @@ export default {
   data () {
     return {
       isLogin:true,
-      avatar: require('./../assets/images/my/head.png')
+
     }
+  },
+  watch: {},
+  computed: {
+    ...mapState({
+      userloginInfo: state=>state.userloginInfo,
+    }),
   },
   mounted(){
     this.$nextTick(()=>{
@@ -116,6 +124,7 @@ export default {
           delCookie('uid');
           delCookie('token');
           this.isLogin = true;
+          this.userloginInfo.avatar = "./../assets/images/my/head.png"
 
           this.$toast.text('退出成功!');
           setTimeout(() => {
@@ -135,13 +144,8 @@ export default {
       }).then((response) => {
         let res = response.data.data;
         if(res.code == 0){
-          console.log("info：：", res.info[0] );
-
-          // context.commit('getUserInfo',res.info[0]);
-          this.$store.commit('getUserInfo',res.info[0]);
-          this.avatar = res.info[0].avatar
-
-          console.log( "dsfadsa:::",this.$store.state.userInfo )
+          //commit提交mutations,更新为使用dispatch提交actions
+          this.$store.dispatch("setUserloginInfo",res.info[0]);
         } else {
           delCookie('uid');
           delCookie('token');
@@ -178,6 +182,12 @@ export default {
       height: 1.33rem;
       border-radius: 50%;
       background: #FFE9E4E3;
+
+      background-size: 100%;
+      background-position: 0 0;
+      background-repeat: no-repeat;
+      background-image: url(./../assets/images/my/head.png);
+
       img {
         max-width: 100%;
         width: 100%;
