@@ -222,9 +222,20 @@ export default {
     }
   },
   mounted(){
-    this.$nextTick(()=>{ })
+    this.$nextTick(()=>{
+      this.$store.dispatch("setShowMenu", false)
+
+      // this.init()
+
+    })
   },
   methods:{
+
+    init() {
+      this.$store.dispatch("setShowMenu", false)
+    },
+
+
     goBack() {
       this.$router.go(-1)
     },

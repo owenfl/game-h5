@@ -22,9 +22,12 @@ export default {
     return {
 
     };
-  },
-  mounted() {
-
+  },  
+  mounted(){
+    this.$nextTick(()=>{
+      this.$store.dispatch("setShowMenu", false)
+    })
+    
   },
   methods:{
 

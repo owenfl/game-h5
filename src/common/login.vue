@@ -77,6 +77,8 @@ export default {
   },
   methods:{
     init() {
+      this.$store.dispatch("setShowMenu", false)
+      
 			if(getCookie('token') && getCookie('uid')) {
 				this.$router.push('/home')
 			}

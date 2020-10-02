@@ -191,7 +191,10 @@ export default {
     }
   },
   mounted(){
-    this.$nextTick(()=>{ })
+    this.$nextTick(()=>{
+      this.$store.dispatch("setShowMenu", false)
+    })
+    
   },
   methods:{
     goBack() {

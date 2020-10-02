@@ -44,6 +44,16 @@ export default new Router({
       component: resolve => require(['../components/scheduleend'], resolve)
     },
 
+    {
+      path: '/scheduleitems',
+      name: 'scheduleitems',
+      component: resolve => require(['../components/scheduleitems'], resolve)
+    },
+    {
+      path: '/scheduleDetail',
+      name: 'scheduleDetail',
+      component: resolve => require(['../components/scheduleDetail'], resolve)
+    },
 
     {
       path: '/my',

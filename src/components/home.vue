@@ -110,20 +110,13 @@
       </div>
     </div>
 
-
-
-    <menu-component></menu-component>
   </div>
 </template>
 
 <script>
-import menuComponent from './../common/menu'
-
 export default {
   name: 'home',
-  components: {
-    menuComponent
-  },
+
   data(){
     return{
       dataItem: [{
@@ -143,9 +136,13 @@ export default {
     }
   },
   mounted(){
-    this.$nextTick(()=>{ })
+    this.$nextTick(()=>{
+      this.$store.dispatch("setShowMenu", true)
+
+    })
   },
   methods:{
+
 
   }
 

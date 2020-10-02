@@ -1,12 +1,25 @@
 <template>
   <div id="app">
     <router-view />
+    <menu-component v-if="isShowMenu"></menu-component>
+
   </div>
 </template>
 
 <script>
+import menuComponent from './common/menu'
+import {mapState, mapGetters, mapMutations, mapActions} from 'vuex';
+
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    menuComponent
+  },
+  computed: {
+    ...mapState({
+      isShowMenu: state=>state.isShowMenu,
+    }),
+  }
 }
 </script>
 
@@ -22,7 +35,11 @@ html, body {
 } 
 
 
-.my, .detail {
+
+.my, .detail,
+.scheduleitems,
+.scheduleDetail
+{
   background: #ffffff;
   height: 100vh;
 }

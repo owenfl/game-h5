@@ -8,6 +8,8 @@ export default new Vuex.Store({
         token: false,
         isLogin: false,
         userInfo: {},
+
+        isShowMenu: false,
         userloginInfo: {},
     },
     getters: {
@@ -22,6 +24,7 @@ export default new Vuex.Store({
         // setIsLogin: (state, data) => state.isLogin = data,
         // setUserInfo: (state, data) => state.userInfo = data,
 
+        setShowMenu: (state, data) => state.isShowMenu = data,
         setUserloginInfo: (state, data) => state.userloginInfo = data,
     },
     // 异步
@@ -30,6 +33,7 @@ export default new Vuex.Store({
         // setIsLogin: (context, payload) => context.commit('setIsLogin', payload),
         // setUserInfo: (context, payload) => context.commit('setUserInfo', payload),
 
+        setShowMenu: (context, payload) => context.commit('setShowMenu', payload),
         setUserloginInfo: (context, payload) => context.commit('setUserloginInfo', payload),
     },
     // 让每个模块都有自己的state

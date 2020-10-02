@@ -31,7 +31,7 @@
             </div> -->
             <div v-if="isLogin" class="pre-id">
               <!-- ID:{{$store.state.userInfo.id}} -->
-              ID:{{userloginInfo.id}}
+              <p v-if="userloginInfo.id">ID:{{userloginInfo.id}}</p>
             </div>
             <!-- <div class="pre-id">
               <span style="margin-right: 0.44rem;">15  粉丝</span>
@@ -73,20 +73,16 @@
       </div>
     </div>
 
-    <menu-component></menu-component>
+
   </div>
 </template>
 
 <script>
-import menuComponent from './../common/menu'
 import { getCookie, delCookie } from './../assets/js/cookie'
 import {mapState, mapGetters, mapMutations, mapActions} from 'vuex';
 
 export default {
   name: 'my',
-  components: {
-    menuComponent
-  },
   data () {
     return {
       isLogin:true,
@@ -102,6 +98,7 @@ export default {
   mounted(){
     this.$nextTick(()=>{
       this.getBaseInfo()
+      this.$store.dispatch("setShowMenu", true)
 
       if(!getCookie('uid') || !getCookie('token')){
         this.isLogin = false;
