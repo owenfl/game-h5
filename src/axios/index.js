@@ -38,12 +38,9 @@ axios.interceptors.response.use(response => {
     // if (data && data.code && data.code !== 0 && data.code !== 1) layer(Vue).msg(data.msg);
     if (data && data.code && data.code !== 0 && data.code !== 1) {
         console.log("axios/index.js:",data.msg)
-
-        this.$toast.text(data.msg);
         setTimeout(() => {
             delCookie('uid');
             delCookie('token');
-            // this.$router.push('login')
         },1000)
     }
 
